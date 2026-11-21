@@ -11,7 +11,7 @@ public class App extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		VBox vbox = new VBox();
 		Scene scene = new Scene(vbox);
-		primaryStage.setTitle("Schematic generator");
+		primaryStage.setTitle("Co-evolution Simulator");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
