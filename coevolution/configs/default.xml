@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="coevolution"/>
+	<feature automatic="selected" name="Base"/>
+	<feature name="Genetics"/>
+	<feature name="ContinuousGenes"/>
+	<feature name="SpeedGene"/>
+	<feature name="SizeGene"/>
+	<feature name="Hunting"/>
+	<feature name="SenseGene"/>
+	<feature name="World"/>
+	<feature name="WorldShape"/>
+	<feature name="Circle"/>
+	<feature name="Square"/>
+	<feature name="Food"/>
+	<feature name="LiveConfig"/>
+	<feature name="Infographics"/>
+</configuration>

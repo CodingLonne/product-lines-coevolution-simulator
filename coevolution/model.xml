@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="false"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showconstraints" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="coevolution">
+			<feature mandatory="true" name="Base"/>
+			<and name="Genetics">
+				<and mandatory="true" name="ContinuousGenes">
+					<feature name="SpeedGene"/>
+					<and name="SizeGene">
+						<feature name="Hunting"/>
+					</and>
+					<feature name="SenseGene"/>
+				</and>
+			</and>
+			<and mandatory="true" name="World">
+				<alt mandatory="true" name="WorldShape">
+					<feature name="Circle"/>
+					<feature name="Square"/>
+				</alt>
+				<feature mandatory="true" name="Food"/>
+			</and>
+			<feature name="LiveConfig"/>
+			<feature name="Infographics"/>
+		</and>
+	</struct>
+</featureModel>

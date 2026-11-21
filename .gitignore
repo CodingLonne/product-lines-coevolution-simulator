@@ -1,0 +1,5 @@
+.DS_Store
+coevolution/bin/
+coevolution/target/
+coevolution/src/
+coevolution/.metadata/
