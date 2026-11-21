@@ -1,14 +1,27 @@
 package coevolution;
 
+import coevolution.environment.World;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 
 public class App extends Application {
+	private CentralConfig config;
+	private Timeline timeline;
+	private World world;
 
+	// ---------------------------------------------------------------
+	// default methods needed for javafx application
+	// ---------------------------------------------------------------
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		startup();
 		VBox vbox = new VBox();
 		Scene scene = new Scene(vbox);
 		primaryStage.setTitle("Co-evolution Simulator");
@@ -19,5 +32,25 @@ public class App extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-
+	
+	// ---------------------------------------------------------------
+	// Startup methods
+	// ---------------------------------------------------------------
+	
+	private void startup() {
+		this.config = new CentralConfig();
+		this.world = new World(config);
+		this.timeline = new Timeline(new KeyFrame(new Duration(1000d/this.config.getFps()), step));
+        this.timeline.setCycleCount(Timeline.INDEFINITE);
+	}
+	
+	// ---------------------------------------------------------------
+	// Step methods
+	// ---------------------------------------------------------------
+	
+	private EventHandler<ActionEvent> step = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent e) {
+        }
+    };
 }
