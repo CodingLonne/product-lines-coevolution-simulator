@@ -47,6 +47,18 @@ public class World {
 		return creatures;
 	}
 	
+	public boolean isInWorld(Entity entity) {
+    	throw new NotImplementedException("Feature Worldshape is circle or square should be enabled");
+    }
+    
+    public double getDirectionToEdge(Entity entity) {
+    	throw new NotImplementedException("Feature Worldshape is circle or square should be enabled");
+    }
+    
+    public double getDirectionToCenter(Entity entity) {
+    	throw new NotImplementedException("Feature Worldshape is circle or square should be enabled");
+    }
+	
 	//listener handler
 	public void addListener(WorldListener listener) {
 		listeners.add(listener);
