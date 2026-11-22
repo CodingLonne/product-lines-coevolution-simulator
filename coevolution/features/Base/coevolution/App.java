@@ -42,6 +42,7 @@ public class App extends Application {
 		primaryStage.setTitle("Co-evolution Simulator");
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		this.timeline.play();
 	}
 
 	public static void main(String[] args) {

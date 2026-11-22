@@ -28,8 +28,8 @@ public class World {
 		}
 	}
 	
-	public void spawnCreatureAt(double x, double y, double radius, double lookingAt) {
-		Creature creature = new Creature(this, x, y, radius, lookingAt);
+	public void spawnCreatureAt(double x, double y, double radius, double speed, double lookingAt) {
+		Creature creature = new Creature(this, x, y, radius, speed, lookingAt);
 		creatures.add(creature);
 		for (WorldListener listener : listeners) {
 			listener.spawnCreature(creature);
