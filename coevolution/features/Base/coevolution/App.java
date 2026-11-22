@@ -53,6 +53,7 @@ public class App extends Application {
 		this.world = new World(config);
 		this.timeline = new Timeline(new KeyFrame(new Duration(1000d/this.config.getFps()), step));
         this.timeline.setCycleCount(Timeline.INDEFINITE);
+        world.spawnCreaturesOnEdge(10);
 	}
 	
 	// ---------------------------------------------------------------
@@ -62,6 +63,7 @@ public class App extends Application {
 	private EventHandler<ActionEvent> step = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent e) {
+        	world.step();
         }
     };
 }
