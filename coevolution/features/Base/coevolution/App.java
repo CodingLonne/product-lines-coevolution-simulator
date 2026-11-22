@@ -1,6 +1,8 @@
 package coevolution;
 
 import coevolution.environment.World;
+import coevolution.visual.WorldView;
+import coevolution.visual.utils.ZoomableScrollPane;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.animation.KeyFrame;
@@ -9,7 +11,10 @@ import javafx.util.Duration;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.ScrollPane;
+
 
 public class App extends Application {
 	private CentralConfig config;
@@ -22,8 +27,14 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		startup();
-		VBox vbox = new VBox();
-		Scene scene = new Scene(vbox);
+		// make world view and place it in scrollpane
+		WorldView worldView = new WorldView(world);
+		ZoomableScrollPane scrollPane = new ZoomableScrollPane(worldView);
+		scrollPane.setPrefWidth(500);
+		scrollPane.setPrefHeight(500);
+		// put wroldview-scrollpane, (and info screen) in Hbox
+		HBox hbox = new HBox(scrollPane);
+		Scene scene = new Scene(hbox);
 		primaryStage.setTitle("Co-evolution Simulator");
 		primaryStage.setScene(scene);
 		primaryStage.show();

@@ -22,13 +22,11 @@
 					<feature name="SenseGene"/>
 				</and>
 			</and>
-			<and mandatory="true" name="World">
-				<alt mandatory="true" name="WorldShape">
-					<feature name="Circle"/>
-					<feature name="Square"/>
-				</alt>
-				<feature mandatory="true" name="Food"/>
-			</and>
+			<alt mandatory="true" name="WorldShape">
+				<feature name="Circle"/>
+				<feature name="Square"/>
+			</alt>
+			<feature mandatory="true" name="Food"/>
 			<feature name="LiveConfig"/>
 			<feature name="Infographics"/>
 		</and>
