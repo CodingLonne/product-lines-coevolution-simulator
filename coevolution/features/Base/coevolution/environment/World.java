@@ -30,6 +30,7 @@ public class World {
 	
 	public void spawnCreatureAt(double x, double y, double radius, double lookingAt) {
 		Creature creature = new Creature(this, x, y, radius, lookingAt);
+		creatures.add(creature);
 		for (WorldListener listener : listeners) {
 			listener.spawnCreature(creature);
 		}
@@ -40,6 +41,10 @@ public class World {
 		for (WorldListener listener : listeners) {
 			listener.despawnCreature(creature);
 		}
+	}
+	
+	public List<Creature> getCreatures() {
+		return creatures;
 	}
 	
 	//listener handler

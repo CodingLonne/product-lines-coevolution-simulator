@@ -19,5 +19,6 @@ public class WorldView extends Pane implements World.WorldListener{
     	backgroundCircle.radiusProperty().bind(world.radiusProperty());
     	backgroundCircle.setFill(OurColors.worldInsideColor);
     	this.getChildren().add(backgroundCircle);
+    	backgroundCircle.toBack();
     }
 }
