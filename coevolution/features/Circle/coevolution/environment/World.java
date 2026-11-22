@@ -54,6 +54,10 @@ public class World {
         return Math.atan2(-entity.getY(), -entity.getX());
     }
     
+    public double getDistanceToEdge(Entity entity) {
+    	return Math.max(0, getRadius()-entity.distanceToCoords(0, 0));
+    }
+    
     // get random position
     public double[] getRandomPosition() {
         double r = getRadius() * Math.sqrt(Math.random());

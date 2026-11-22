@@ -7,11 +7,15 @@ public class CentralConfig {
     private DoubleProperty startEnergyProperty;
     private DoubleProperty creatureDensityProperty;
     private IntegerProperty foodEnergyValueProperty;
+    private IntegerProperty foodRequiredForSurvivalProperty;
+    private IntegerProperty foodRequiredPerReproductionProperty;
 
     public CentralConfig() {
         this.startEnergyProperty = new SimpleDoubleProperty(2000);
         this.creatureDensityProperty = new SimpleDoubleProperty(0.0001);
-        this.foodEnergyValueProperty = new SimpleIntegerProperty(500);
+        this.foodEnergyValueProperty = new SimpleIntegerProperty(200);
+        this.foodRequiredForSurvivalProperty = new SimpleIntegerProperty(1);
+        this.foodRequiredPerReproductionProperty = new SimpleIntegerProperty(1);
     }
 
     public double getStartEnergy() {
@@ -48,5 +52,29 @@ public class CentralConfig {
 
     public IntegerProperty foodEnergyValueProperty() {
         return foodEnergyValueProperty;
+    }
+    
+    public int getFoodRequiredForSurvival() {
+        return foodRequiredForSurvivalProperty.get();
+    }
+
+    public void setFoodRequiredForSurvival(int foodRequiredForSurvival) {
+        foodRequiredForSurvivalProperty.set(foodRequiredForSurvival);
+    }
+
+    public IntegerProperty foodRequiredForSurvivalProperty() {
+        return foodRequiredForSurvivalProperty;
+    }
+
+    public int getFoodRequiredPerReproduction() {
+        return foodRequiredPerReproductionProperty.get();
+    }
+
+    public void setFoodRequiredPerReproduction(int foodRequiredPerReproduction) {
+        foodRequiredPerReproductionProperty.set(foodRequiredPerReproduction);
+    }
+
+    public IntegerProperty foodRequiredPerReproductionProperty() {
+        return foodRequiredPerReproductionProperty;
     }
 }

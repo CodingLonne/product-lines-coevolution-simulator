@@ -22,10 +22,26 @@ public class Creature {
 
 	public void step() {
 		eatTouchingFood();
-		
-		if (getEnergy() > 0) {
-			original();
+		if (getEnergy() <= 0) {
+			// if no energy
+			return;
 		}
+		if (getEnergy() < getEnergyToShelter() + 2*getStepCost(getSpeed())) {
+			// if not enough energy to set next step and still get to edge, then go to edge now.
+			moveToShelter(getSpeed());
+			return;
+		}
+		original();
+	}
+	
+	private double getEnergyToShelter() {
+		double neededSteps = Math.ceil(getWorld().getDistanceToEdge(this));
+		double energyCost = neededSteps*getStepCost(getSpeed());	
+		return energyCost;
+	}
+	
+	private void moveToShelter(double speed) {
+		this.moveToEdge(speed);
 	}
 	
 	public void resetEnergy() {
@@ -35,10 +51,13 @@ public class Creature {
 	@Override
 	public void moveInDirection(double dir, double speed) {
 		super.moveInDirection(dir, speed);
+		setEnergy(getEnergy()-getStepCost(speed));
+	}
+	
+	private double getStepCost(double speed) {
 		double mass = getRadius()*getRadius()*getRadius()*densityPerRadiusCubed.get();
 		// derived from kinetic formula: 0.5*m*v^2
-		double energySpent = 0.5*mass*getSpeed()*getSpeed();
-		setEnergy(getEnergy()-energySpent);
+		return 0.5*mass*getSpeed()*getSpeed();
 	}
 	
 	
