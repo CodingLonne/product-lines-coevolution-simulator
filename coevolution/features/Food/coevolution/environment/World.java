@@ -13,6 +13,10 @@ public class World {
         foods.add(new Food(this, p[0], p[1], 10));
     }
 
+    public void removeFood(Food food) {
+        foods.remove(food);
+    }
+
     public void step() {
         original();
         if (foods.size() < 50 && Math.random() < 0.1) spawnFood();
