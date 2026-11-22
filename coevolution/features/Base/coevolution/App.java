@@ -43,6 +43,7 @@ public class App extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		this.timeline.play();
+		timeline.play();
 	}
 
 	public static void main(String[] args) {
