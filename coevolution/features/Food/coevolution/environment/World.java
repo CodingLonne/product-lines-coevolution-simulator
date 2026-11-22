@@ -10,7 +10,7 @@ public class World {
 
     public void spawnFood() {
         double[] p = getRandomPosition();
-        foods.add(new Food(this, p[0], p[1], 10));
+        foods.add(new Food(this, p[0], p[1], getConfig().getFoodEnergyValue()));
     }
 
     public void removeFood(Food food) {

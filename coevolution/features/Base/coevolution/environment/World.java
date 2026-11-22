@@ -68,4 +68,8 @@ public class World {
 		listeners.remove(listener);
 	}
 	
+	public CentralConfig getConfig() {
+		return config;
+	}
+	
 }
