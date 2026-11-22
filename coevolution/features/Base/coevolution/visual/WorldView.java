@@ -21,7 +21,7 @@ public class WorldView extends Pane implements World.WorldListener {
 	
     public WorldView(World world) {
     	this.setBackground(new Background(new BackgroundFill(OurColors.worldOutsideColor, null, null)));
-    	
+    	this.setPrefSize(500, 500);
     	// do shape specific configs
     	this.connectToWorld(world);
     }

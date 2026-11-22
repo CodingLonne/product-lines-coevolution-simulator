@@ -49,4 +49,10 @@ public class World {
         return Math.atan2(-entity.getY(), -entity.getX());
     }
     
+    // get random position
+    public double[] getRandomPosition() {
+        double r = getRadius() * Math.sqrt(Math.random());
+        double a = Math.random() * 2 * Math.PI;
+        return new double[] { r * Math.cos(a), r * Math.sin(a) };
+    }
 }
