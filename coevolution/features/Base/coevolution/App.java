@@ -9,8 +9,11 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 import javafx.application.Application;
+import javafx.scene.paint.Color;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.ScrollPane;
@@ -32,12 +35,14 @@ public class App extends Application {
 		ZoomableScrollPane scrollPane = new ZoomableScrollPane(worldView);
 		scrollPane.setPrefWidth(500);
 		scrollPane.setPrefHeight(500);
+		scrollPane.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
 		// put wroldview-scrollpane, (and info screen) in Hbox
 		HBox hbox = new HBox(scrollPane);
 		Scene scene = new Scene(hbox);
 		primaryStage.setTitle("Co-evolution Simulator");
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		this.timeline.play();
 	}
 
 	public static void main(String[] args) {

@@ -28,8 +28,9 @@ public class World {
 		}
 	}
 	
-	public void spawnCreatureAt(double x, double y, double radius, double lookingAt) {
-		Creature creature = new Creature(this, x, y, radius, lookingAt);
+	public void spawnCreatureAt(double x, double y, double radius, double speed, double lookingAt) {
+		Creature creature = new Creature(this, x, y, radius, speed, lookingAt);
+		creatures.add(creature);
 		for (WorldListener listener : listeners) {
 			listener.spawnCreature(creature);
 		}
@@ -41,6 +42,22 @@ public class World {
 			listener.despawnCreature(creature);
 		}
 	}
+	
+	public List<Creature> getCreatures() {
+		return creatures;
+	}
+	
+	public boolean isInWorld(Entity entity) {
+    	throw new NotImplementedException("Feature Worldshape is circle or square should be enabled");
+    }
+    
+    public double getDirectionToEdge(Entity entity) {
+    	throw new NotImplementedException("Feature Worldshape is circle or square should be enabled");
+    }
+    
+    public double getDirectionToCenter(Entity entity) {
+    	throw new NotImplementedException("Feature Worldshape is circle or square should be enabled");
+    }
 	
 	//listener handler
 	public void addListener(WorldListener listener) {

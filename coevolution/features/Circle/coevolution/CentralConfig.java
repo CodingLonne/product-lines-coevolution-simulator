@@ -4,7 +4,7 @@ public class CentralConfig {
     private SimpleDoubleProperty worldSizeProperty;
 
     public CentralConfig() {
-        this.worldSizeProperty = new SimpleDoubleProperty(0);
+        this.worldSizeProperty = new SimpleDoubleProperty(500);
     }
 
     public double getWorldSize() {

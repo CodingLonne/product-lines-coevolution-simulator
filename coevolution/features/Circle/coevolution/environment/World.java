@@ -22,7 +22,7 @@ public class World {
     		double angle = angleStepSize * i;
     		double x = this.getRadius() * Math.cos(angle);
     		double y = this.getRadius() * Math.sin(angle);
-    		this.spawnCreatureAt(x, y, config.getDefaultRadius(), angle + Math.PI);
+    		this.spawnCreatureAt(x, y, config.getDefaultRadius(), config.getDefaultSpeed(), angle + Math.PI);
     	}
     }
     
@@ -36,6 +36,11 @@ public class World {
 
     public DoubleProperty radiusProperty() {
         return radiusProperty;
+    }
+    
+    public boolean isInWorld(Entity entity) {
+    	double distanceFromCenter = entity.distanceToCoords(0, 0);
+    	return distanceFromCenter < getRadius();
     }
     
     // get direction to closest edge

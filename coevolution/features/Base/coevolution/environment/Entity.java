@@ -16,11 +16,19 @@ public abstract class Entity {
     }
 
 	public boolean touches(Entity other) {
-        double dx = this.getX() - other.getX();
-        double dy = this.getY() - other.getY();
-        double distance = Math.sqrt(dx*dx + dy*dy);
+        double distance = distanceTo(other);
         return distance <= this.getRadius() + other.getRadius();
     }
+	
+	public double distanceTo(Entity other) {
+        return distanceToCoords(other.getX(), other.getY());
+	}
+	
+	public double distanceToCoords(double x, double y) {
+		double dx = this.getX() - x;
+        double dy = this.getY() - y;
+        return Math.sqrt(dx*dx + dy*dy);
+	}
     
     public double getX() {
     	return xProperty.get();
