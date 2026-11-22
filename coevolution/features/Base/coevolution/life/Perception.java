@@ -1,7 +1,10 @@
 package coevolution.life;
 
+import coevolution.environment.Entity;
 import coevolution.environment.World;
 import coevolution.life.Creature;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 import java.util.function.Predicate;
@@ -9,16 +12,57 @@ import java.util.function.Predicate;
 public class Perception {
     private Creature owner;
     private World world;
-    private List<Creature> seenCreatures;
+    private ArrayList<Creature> seenCreatures = new ArrayList<Creature>();
+    private Comparator<Entity> byDistance = new Comparator<Entity>() {
+        @Override
+        public int compare(Entity e1, Entity e2) {
+            return Double.compare(owner.distanceTo(e1), owner.distanceTo(e2));
+        }
+    };
     
-    public Perception(Creature from, World inWorld, List<Creature> otherCreatures) {
+    //constructor
+    public Perception(Creature from, World inWorld) {
         this.owner = from;
         this.world = inWorld;
-        this.seenCreatures = filterPerceivedCreatures(otherCreatures.stream()).toList();
+    }
+    
+    // simplify all information into desires and threats, features extend this as needed
+    public List<Entity> getDesires() {
+    	return new ArrayList<Entity>();
+    }
+    
+    public List<Entity> getThreats() {
+    	return new ArrayList<Entity>();
+    }
+    
+    public Entity getClosestDesire() {
+    	return getDesires().stream().sorted(byDistance).findFirst().orElse(null);
+    }
+    
+    public Entity getClosestThreat() {
+    	return getThreats().stream().sorted(byDistance).findFirst().orElse(null);
+    }
+    
+    // creature methods
+    public void addCreatures(List<Creature> creatures) {
+    	this.seenCreatures.addAll(filterPerceivedCreatures(creatures.stream()).toList());
+    }
+    
+    public Creature getClosestCreature() {
+    	return seenCreatures.stream().sorted(byDistance).findFirst().orElse(null);
+    }
+    
+    public List<Creature> getSeenCreatures() {
+    	return seenCreatures;
+    }
+    
+    //filtering
+    private <T extends Entity> Stream<T> filterPerceivedAnythings(Stream<T> anythingStream) {
+        return anythingStream;
     }
     
     private Stream<Creature> filterPerceivedCreatures(Stream<Creature> creatureStream) {
-    	return creatureStream.filter(excludeSelf);
+    	return filterPerceivedAnythings(creatureStream).filter(excludeSelf);
     }
     
     private Predicate<Creature> excludeSelf = new Predicate<Creature>() {
@@ -27,7 +71,8 @@ public class Perception {
             return c != owner;
         }
     };
-
+    
+    //getters and setters
     public Creature getOwner() {
         return owner;
     }
@@ -44,12 +89,5 @@ public class Perception {
         this.world = world;
     }
 
-    public List<Creature> getSeenCreatures() {
-        return seenCreatures;
-    }
-
-    public void setSeenCreatures(List<Creature> seenCreatures) {
-        this.seenCreatures = seenCreatures;
-    }
     
 }
