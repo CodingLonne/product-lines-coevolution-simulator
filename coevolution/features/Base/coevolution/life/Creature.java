@@ -14,7 +14,11 @@ public class Creature extends MoveableEntity {
     }
     
     public void step() {
-    	this.moveForward(getSpeed());
+    	if (getWorld().isInWorld(this)) {
+    		this.moveForward(getSpeed());
+    	} else {
+    		this.moveToCenter(getSpeed());
+    	}
     }
     
     public double getSpeed() {

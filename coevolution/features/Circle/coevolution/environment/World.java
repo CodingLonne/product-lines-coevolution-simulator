@@ -38,6 +38,11 @@ public class World {
         return radiusProperty;
     }
     
+    public boolean isInWorld(Entity entity) {
+    	double distanceFromCenter = entity.distanceToCoords(0, 0);
+    	return distanceFromCenter < getRadius();
+    }
+    
     // get direction to closest edge
     public double getDirectionToEdge(Entity entity) {
     	// direction from entity to edge is same as direction from center to entity for circle shape.
