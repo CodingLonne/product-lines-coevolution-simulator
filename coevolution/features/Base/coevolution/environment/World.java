@@ -2,6 +2,7 @@ package coevolution.environment;
 
 import coevolution.CentralConfig;
 import coevolution.life.Creature;
+import coevolution.life.Perception;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,12 @@ public class World {
 		for (Creature creature : creatures) {
 			creature.step();
 		}
+	}
+	
+	public Perception perceive(Creature creature) {
+		Perception perception = new Perception(creature, this);
+		perception.addCreatures(creatures);
+		return perception;
 	}
 	
 	public void spawnCreatureAt(double x, double y, double radius, double speed, double lookingAt) {
@@ -66,6 +73,10 @@ public class World {
 	
 	public void removeListener(WorldListener listener) {
 		listeners.remove(listener);
+	}
+	
+	public CentralConfig getConfig() {
+		return config;
 	}
 	
 }

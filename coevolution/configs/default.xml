@@ -8,7 +8,6 @@
 	<feature manual="selected" name="SizeGene"/>
 	<feature name="Hunting"/>
 	<feature manual="selected" name="SenseGene"/>
-	<feature automatic="selected" name="World"/>
 	<feature automatic="selected" name="WorldShape"/>
 	<feature manual="selected" name="Circle"/>
 	<feature automatic="unselected" name="Square"/>

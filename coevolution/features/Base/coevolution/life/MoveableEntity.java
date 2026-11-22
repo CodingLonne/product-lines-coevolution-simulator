@@ -2,6 +2,7 @@ package coevolution.life;
 
 import coevolution.environment.Entity;
 import coevolution.environment.World;
+import java.lang.Math;
 
 public class MoveableEntity extends Entity {
 	double lastAngle; //in radians
@@ -19,8 +20,17 @@ public class MoveableEntity extends Entity {
         moveToCoords(entity.getX(), entity.getY(), speed);
     }
     
+    public void moveAwayFromEntity(Entity entity, double speed) {
+        moveAwayFromCoords(entity.getX(), entity.getY(), speed);
+    }
+    
     public void moveToCoords(double coordX, double coordY, double speed) {
         double dir = Math.atan2(coordY - this.getY(), coordX - this.getX());
+        moveInDirection(dir, speed);
+    }
+    
+    public void moveAwayFromCoords(double coordX, double coordY, double speed) {
+        double dir = Math.atan2(coordY - this.getY(), coordX - this.getX())-Math.PI;
         moveInDirection(dir, speed);
     }
     
