@@ -9,9 +9,9 @@
 	<feature name="Hunting"/>
 	<feature manual="selected" name="SenseGene"/>
 	<feature automatic="selected" name="WorldShape"/>
-	<feature manual="selected" name="Circle"/>
-	<feature automatic="unselected" name="Square"/>
-	<feature automatic="selected" name="Food"/>
+	<feature automatic="unselected" name="Circle"/>
+	<feature manual="selected" name="Square"/>
+	<feature name="Food"/>
 	<feature name="LiveConfig"/>
 	<feature name="Infographics"/>
 </configuration>
