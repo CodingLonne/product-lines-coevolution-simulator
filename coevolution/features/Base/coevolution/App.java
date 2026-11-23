@@ -23,6 +23,10 @@ public class App extends Application {
 	private CentralConfig config;
 	private Timeline timeline;
 	private World world;
+	
+	public static Scene makeScene(HBox hbox) {
+		return new Scene(hbox);
+	}
 
 	// ---------------------------------------------------------------
 	// default methods needed for javafx application
@@ -36,15 +40,18 @@ public class App extends Application {
 		scrollPane.setPrefWidth(500);
 		scrollPane.setPrefHeight(500);
 		scrollPane.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
-		// put wroldview-scrollpane, (and info screen) in Hbox
+		// put worldview-scrollpane, (and info screen) in Hbox
+		
 		HBox hbox = new HBox(scrollPane);
-		Scene scene = new Scene(hbox);
+		Scene scene = makeScene(hbox);
 		primaryStage.setTitle("Co-evolution Simulator");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		this.timeline.play();
 		timeline.play();
 	}
+	
+
 
 	public static void main(String[] args) {
 		launch(args);
