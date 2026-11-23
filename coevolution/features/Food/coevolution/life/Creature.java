@@ -21,9 +21,13 @@ public class Creature {
 	
 
 	public void step() {
+		if (this.isSleeping()) {
+			this.sleep();
+		}
 		eatTouchingFood();
 		if (getEnergy() <= 0) {
 			// if no energy
+			this.fallAsleep();
 			return;
 		}
 		if (getEnergy() < getEnergyToShelter() + 2*getStepCost(getSpeed())) {
