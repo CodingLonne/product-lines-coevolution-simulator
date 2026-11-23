@@ -3,3 +3,8 @@ coevolution/bin/
 coevolution/target/
 coevolution/src/
 coevolution/.metadata/
+/.metadata/
+coevolution/.classpath
+coevolution/.settings/org.eclipse.jdt.core.prefs
+coevolution/configs/default.xml
+
