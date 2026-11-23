@@ -29,10 +29,18 @@
 			<feature name="Food"/>
 			<feature mandatory="true" name="LiveConfig"/>
 			<feature name="Infographics"/>
-			<alt mandatory="true" name="Sleep">
+			<alt name="Sleep">
 				<feature name="Naps"/>
 				<feature name="NightSleep"/>
 			</alt>
 		</and>
 	</struct>
+	<constraints>
+		<rule>
+			<eq>
+				<var>Sleep</var>
+				<var>Food</var>
+			</eq>
+		</rule>
+	</constraints>
 </featureModel>

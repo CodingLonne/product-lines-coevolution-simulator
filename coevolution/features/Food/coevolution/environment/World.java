@@ -21,7 +21,7 @@ public class World {
 
     public void step() {
         original();
-        if (foods.size() < 50 && Math.random() < 0.1) spawnFood();
+        if (foods.size() < this.getConfig().getMaxFoodSpawned() && Math.random() < this.getConfig().getFoodSpawnChancePerTick()) spawnFood();
     }
     
     public Perception perceive(Creature creature) {

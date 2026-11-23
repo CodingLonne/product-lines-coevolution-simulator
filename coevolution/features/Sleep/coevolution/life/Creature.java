@@ -23,7 +23,6 @@ public class Creature {
     
     // methods while sleeping
     private void sleep() {
-    	
     }
     
     // sleep related getters/properties

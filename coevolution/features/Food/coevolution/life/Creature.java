@@ -13,7 +13,7 @@ public class Creature {
 	private DoubleProperty densityPerRadiusCubed;
 	private int foodEatenToday = 0;
 	public Creature(World world, double x, double y, double radius, double speed, double lookingAt) {
-		this.energyProperty = new SimpleDoubleProperty(world.getConfig().getStartEnergy());
+		this.energyProperty = new SimpleDoubleProperty(world.getConfig().getFullEnergy());
 		this.densityPerRadiusCubed = new SimpleDoubleProperty();
 		// based on volume for sphere which is (4/3)*pi*r^3
 		this.densityPerRadiusCubed.bind(world.getConfig().creatureDensityProperty().multiply(1.33*Math.PI));
@@ -23,6 +23,7 @@ public class Creature {
 	public void step() {
 		if (this.isSleeping()) {
 			this.sleep();
+			return;
 		}
 		eatTouchingFood();
 		if (getEnergy() <= 0) {
@@ -49,7 +50,7 @@ public class Creature {
 	}
 	
 	public void resetEnergy() {
-		setEnergy(getWorld().getConfig().getStartEnergy());
+		setEnergy(getWorld().getConfig().getFullEnergy());
 	}
 	
 	@Override

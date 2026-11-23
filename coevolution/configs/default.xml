@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="coevolution"/>
+	<feature automatic="selected" name="Base"/>
+	<feature name="Genetics"/>
+	<feature name="ContinuousGenes"/>
+	<feature name="SpeedGene"/>
+	<feature name="SizeGene"/>
+	<feature name="Hunting"/>
+	<feature name="SenseGene"/>
+	<feature automatic="selected" name="WorldShape"/>
+	<feature automatic="unselected" name="Circle"/>
+	<feature manual="selected" name="Square"/>
+	<feature manual="selected" name="Food"/>
+	<feature name="LiveConfig"/>
+	<feature name="Infographics"/>
+	<feature automatic="selected" name="Sleep"/>
+	<feature manual="selected" name="Naps"/>
+	<feature automatic="unselected" name="NightSleep"/>
+</configuration>
