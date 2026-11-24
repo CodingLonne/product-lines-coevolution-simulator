@@ -6,9 +6,10 @@ import coevolution.visual.GraphPane;
 import javafx.scene.shape.Circle;
 
 public class App extends Application{
-	public static Scene makeScene(HBox hbox) {
-		GraphPane graph = new GraphPane();
+	public static HBox makeWorld(World world) {
+		HBox hbox = original(world);
+		GraphPane graph = new GraphPane(world);
 		hbox.getChildren().add(graph);
-		return original(hbox);
+		return hbox;
 	}
 }

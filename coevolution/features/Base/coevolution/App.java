@@ -24,8 +24,16 @@ public class App extends Application {
 	private Timeline timeline;
 	private World world;
 	
-	public static Scene makeScene(HBox hbox) {
-		return new Scene(hbox);
+	public static HBox makeWorld(World world) {
+		// make world view and place it in scrollpane
+		WorldView worldView = new WorldView(world);
+		ZoomableScrollPane scrollPane = new ZoomableScrollPane(worldView);
+		scrollPane.setPrefWidth(500);
+		scrollPane.setPrefHeight(500);
+		scrollPane.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
+		// put worldview-scrollpane, (and info screen) in Hbox
+		HBox hbox = new HBox(scrollPane);
+		return hbox;
 	}
 
 	// ---------------------------------------------------------------
@@ -34,16 +42,7 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		startup();
-		// make world view and place it in scrollpane
-		WorldView worldView = new WorldView(world);
-		ZoomableScrollPane scrollPane = new ZoomableScrollPane(worldView);
-		scrollPane.setPrefWidth(500);
-		scrollPane.setPrefHeight(500);
-		scrollPane.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
-		// put worldview-scrollpane, (and info screen) in Hbox
-		
-		HBox hbox = new HBox(scrollPane);
-		Scene scene = makeScene(hbox);
+		Scene scene = new Scene(makeWorld(world));
 		primaryStage.setTitle("Co-evolution Simulator");
 		primaryStage.setScene(scene);
 		primaryStage.show();
