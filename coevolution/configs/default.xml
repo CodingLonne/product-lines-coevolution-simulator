@@ -11,10 +11,10 @@
 	<feature automatic="selected" name="WorldShape"/>
 	<feature automatic="unselected" name="Circle"/>
 	<feature manual="selected" name="Square"/>
-	<feature manual="selected" name="Food"/>
+	<feature name="Food"/>
 	<feature name="LiveConfig"/>
 	<feature name="Infographics"/>
-	<feature automatic="selected" name="Sleep"/>
-	<feature manual="selected" name="Naps"/>
-	<feature automatic="unselected" name="NightSleep"/>
+	<feature name="Sleep"/>
+	<feature name="Naps"/>
+	<feature name="NightSleep"/>
 </configuration>
